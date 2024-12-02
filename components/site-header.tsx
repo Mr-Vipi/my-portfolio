@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 
 import { Icons } from "./icons"
 import { MainNav } from "./main-nav"
+import { MobileNav } from "./mobile-nav"
 import { buttonVariants } from "./ui/button"
 
 export function SiteHeader() {
@@ -22,7 +23,7 @@ export function SiteHeader() {
               <div
                 className={cn(
                   buttonVariants({ variant: "ghost" }),
-                  "w-10 px-0"
+                  "hidden w-10 px-0 sm:inline-flex"
                 )}
               >
                 <Icons.GitHub className="size-4" />
@@ -37,13 +38,14 @@ export function SiteHeader() {
               <div
                 className={cn(
                   buttonVariants({ variant: "ghost" }),
-                  "w-10 px-0"
+                  "hidden w-10 px-0 sm:inline-flex"
                 )}
               >
                 <Icons.BlueSky className="size-4" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
+            <MobileNav />
           </nav>
         </div>
       </div>
