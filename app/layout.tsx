@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 
 import { cn } from "@/lib/utils"
+import { Providers } from "@/components/providers"
 import { SiteHeader } from "@/components/site-header"
-import { ThemeProvider } from "@/components/theme-provider"
 
 import "./globals.css"
 
@@ -37,17 +37,12 @@ export default function RootLayout({
           geistMono.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Providers>
           <div className="relative flex min-h-dvh flex-col bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)] dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
             <SiteHeader />
             <main className="flex-1">{children}</main>
           </div>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   )
