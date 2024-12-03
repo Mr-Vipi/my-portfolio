@@ -3,6 +3,8 @@ import { posts } from "#site/content"
 
 import { MDXContent } from "@/components/mdx-content"
 
+import "@/styles/mdx.css"
+
 type PostPageProps = {
   params: {
     slug: string[]

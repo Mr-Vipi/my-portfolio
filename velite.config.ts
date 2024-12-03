@@ -1,3 +1,6 @@
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypePrettyCode from "rehype-pretty-code"
+import rehypeSlug from "rehype-slug"
 import { defineConfig, s } from "velite"
 
 // `s` is extended from Zod with some custom schemas,
@@ -37,7 +40,20 @@ export default defineConfig({
     // },
   },
   mdx: {
-    rehypePlugins: [],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypePrettyCode, { theme: "github-dark" }],
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "wrap",
+          properties: {
+            className: ["subheading-anchor"],
+            ariaLabel: "Link to section",
+          },
+        },
+      ],
+    ],
     remarkPlugins: [],
   },
 })
