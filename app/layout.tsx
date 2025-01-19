@@ -32,9 +32,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="scroll-pt-14">
       <body
         className={cn(
-          "min-h-screen antialiased",
           geistSans.variable,
-          geistMono.variable
+          geistMono.variable,
+          "min-h-screen antialiased"
         )}
       >
         <Providers>
