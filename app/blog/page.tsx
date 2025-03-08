@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { posts } from "#site/content"
 
 import { sortPosts } from "@/lib/utils"
@@ -21,8 +22,10 @@ export default async function BlogPage() {
         </div>
       </div>
       <hr className="mt-8" />
-      <DisplayPosts sortedPosts={sortedPosts} postPerPage={POST_PER_PAGE} />
-      <QueryPagination totalPages={totalPages} className="mt-4 justify-end" />
+      <Suspense>
+        <DisplayPosts sortedPosts={sortedPosts} postPerPage={POST_PER_PAGE} />
+        <QueryPagination totalPages={totalPages} className="mt-4 justify-end" />
+      </Suspense>
     </div>
   )
 }
