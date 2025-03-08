@@ -1,13 +1,14 @@
+import type { NextConfig } from "next"
+
 const isDev = process.argv.includes("dev")
 const isBuild = process.argv.includes("build")
 if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
   process.env.VELITE_STARTED = "1"
-  const { build } = await import("velite")
-  await build({ watch: isDev, clean: !isDev })
+  import("velite").then((v) => v.build({ watch: isDev, clean: !isDev }))
 }
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
+  /* config options here */
   basePath: "/my-portfolio",
   output: "export",
   reactStrictMode: true,
