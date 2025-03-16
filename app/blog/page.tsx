@@ -1,10 +1,15 @@
+import { Suspense } from "react"
 import { posts } from "#site/content"
 
 import { sortPosts } from "@/lib/utils"
-import { PostItem } from "@/components/post-item"
+import { DisplayPosts } from "@/components/display-posts"
+import { QueryPagination } from "@/components/query-pagination"
+
+const POST_PER_PAGE = 5
 
 export default async function BlogPage() {
   const sortedPosts = sortPosts(posts.filter((post) => post.published))
+  const totalPages = Math.ceil(sortedPosts.length / POST_PER_PAGE)
 
   return (
     <div className="container mx-auto w-full px-8 py-6 lg:py-10">
@@ -17,26 +22,10 @@ export default async function BlogPage() {
         </div>
       </div>
       <hr className="mt-8" />
-      {sortedPosts?.length > 0 ? (
-        <ul className="flex flex-col">
-          {sortedPosts.map((post) => {
-            const { date, title, slug, description } = post
-
-            return (
-              <li key={post.slug}>
-                <PostItem
-                  date={date}
-                  title={title}
-                  slug={slug}
-                  description={description}
-                />
-              </li>
-            )
-          })}
-        </ul>
-      ) : (
-        <p>Nothing to see here yet</p>
-      )}
+      <Suspense>
+        <DisplayPosts sortedPosts={sortedPosts} postPerPage={POST_PER_PAGE} />
+        <QueryPagination totalPages={totalPages} className="mt-4 justify-end" />
+      </Suspense>
     </div>
   )
 }
