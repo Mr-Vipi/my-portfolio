@@ -24,13 +24,13 @@ jobs:
       - name: Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧
         uses: ./.github/workflows/setup-node
 
+      - name: Build with Next.js 🏗️
+        run: pnpm run build
+
       - name: Setup Pages ⚙️
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
-
-      - name: Build with Next.js 🏗️
-        run: pnpm run build
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
