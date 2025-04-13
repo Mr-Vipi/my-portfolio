@@ -13,7 +13,6 @@ const nextConfig = async (): Promise<NextConfig> => {
     /* config options here */
     basePath: "/my-portfolio",
     output: "export",
-    reactStrictMode: true,
   }
 }
 
