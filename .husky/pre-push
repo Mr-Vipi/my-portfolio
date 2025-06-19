@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-main_branch="main"
+# Commented code to build only on main branch push
+# Uncomment if you want to enable this feature
 
-branch="$(git rev-parse --abbrev-ref HEAD)"
+# main_branch="main"
 
-if [ "$branch" = "$main_branch" ]; then
-  pnpm run build
-fi
+# branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# if [ "$branch" = "$main_branch" ]; then
+#   pnpm run build
+# fi
 # uncomment to test
 # exit 1
+pnpm run build
