@@ -8,7 +8,9 @@ const buildEslintCommand = (filenames) =>
 
 const prettierCommand = "prettier --write"
 
-export default {
+const lintStagedConfig = {
   "*.{js,jsx,ts,tsx}": [prettierCommand, buildEslintCommand],
   "*.{json,css,md}": [prettierCommand],
 }
+
+export default lintStagedConfig
