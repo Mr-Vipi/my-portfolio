@@ -16,6 +16,13 @@ const eslintConfig = [
   ...tailwind.configs["flat/recommended"],
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "out/**",
+      "build/**",
+      "next-env.d.ts",
+    ],
     rules: {
       "no-console": [
         "error",
