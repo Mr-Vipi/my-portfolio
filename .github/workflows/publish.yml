@@ -33,7 +33,7 @@ jobs:
           static_site_generator: next
 
       - name: Upload artifact 📡
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
