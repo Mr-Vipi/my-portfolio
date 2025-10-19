@@ -45,21 +45,19 @@ export function QueryPagination({
           </PaginationItem>
         ) : null}
 
-        {Array(totalPages)
-          .fill("")
-          .map((_, index) => (
-            <PaginationItem
-              className="hidden sm:inline-block"
-              key={`page-button-${index + 1}`}
+        {new Array(totalPages).fill("").map((_, index) => (
+          <PaginationItem
+            className="hidden sm:inline-block"
+            key={`page-button-${index + 1}`}
+          >
+            <PaginationLink
+              isActive={currentPage === index + 1}
+              href={createPageURL(index + 1)}
             >
-              <PaginationLink
-                isActive={currentPage === index + 1}
-                href={createPageURL(index + 1)}
-              >
-                {index + 1}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
+              {index + 1}
+            </PaginationLink>
+          </PaginationItem>
+        ))}
 
         {nextPage <= totalPages ? (
           <PaginationItem>
