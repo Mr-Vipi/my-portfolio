@@ -1,5 +1,5 @@
-import { relative } from "path"
-import process from "process"
+import { relative } from "node:path"
+import process from "node:process"
 
 const buildEslintCommand = (filenames) =>
   `next lint --fix --file ${filenames
