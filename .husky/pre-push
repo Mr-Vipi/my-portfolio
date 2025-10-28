@@ -8,8 +8,10 @@
 # branch="$(git rev-parse --abbrev-ref HEAD)"
 
 # if [ "$branch" = "$main_branch" ]; then
+#   pnpm run lint
 #   pnpm run build
 # fi
 # uncomment to test
 # exit 1
+pnpm run lint
 pnpm run build
