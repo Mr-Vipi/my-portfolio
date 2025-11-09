@@ -1,4 +1,4 @@
-import { Post } from "#site/content"
+import type { Post } from "#site/content"
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
