@@ -17,8 +17,14 @@ type MdxProps = {
   code: string
 }
 
-export function MDXContent({ code }: Readonly<MdxProps>) {
+// ✅ Create a stable custom hook — React Compiler handles this fine
+function useMDXRenderer(code: string) {
   const Component = useMDXComponent(code)
+  return { Component }
+}
+
+export function MDXContent({ code }: Readonly<MdxProps>) {
+  const { Component } = useMDXRenderer(code)
 
   return <Component components={{ ...components }} />
 }
