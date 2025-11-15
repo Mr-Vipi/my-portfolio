@@ -2,13 +2,20 @@
 
 import { ComponentPropsWithRef, useState } from "react"
 import Link from "next/link"
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import { Menu } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 
 import { Icons } from "./icons"
 import { Button } from "./ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet"
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -21,6 +28,10 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="right">
+        <VisuallyHidden>
+          <SheetTitle>Mobile Navigation</SheetTitle>
+          <SheetDescription>Menu with navigation links</SheetDescription>
+        </VisuallyHidden>
         <MobileLink
           href="/"
           className="flex items-center"
