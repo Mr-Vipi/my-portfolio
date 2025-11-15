@@ -6,11 +6,11 @@ import { MDXContent } from "@/components/mdx-content"
 import "@/styles/mdx.css"
 
 type PostPageProps = {
-  params: Promise<{ slug: string[] }>
+  params: { slug: string[] }
 }
 
-async function getPostFromParams(params: PostPageProps["params"]) {
-  const slug = (await params)?.slug?.join("/")
+function getPostFromParams(params: PostPageProps["params"]) {
+  const slug = params?.slug?.join("/")
   return posts.find((post) => post.slugAsParams === slug)
 }
 
@@ -20,9 +20,11 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function PostPage(props: Readonly<PostPageProps>) {
-  const params = props.params
-  const post = await getPostFromParams(params)
+export default async function PostPage(
+  props: Readonly<PageProps<"/blog/[...slug]">>
+) {
+  const params = await props.params
+  const post = getPostFromParams(params)
 
   if (!post?.published) {
     notFound()

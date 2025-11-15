@@ -6,7 +6,7 @@ import { cn, formatDate } from "@/lib/utils"
 import { buttonVariants } from "./ui/button"
 
 type PostItemProps = {
-  slug: string
+  slug: `/blog/${string}`
   title: string
   date: string
   description?: string

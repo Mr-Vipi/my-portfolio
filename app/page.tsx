@@ -27,17 +27,17 @@ export default function Home() {
             >
               View my blog
             </Link>
-            <Link
+            <a
               href={siteConfig.links.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "w-full sm:w-fit"
               )}
             >
               GitHub
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -50,7 +50,7 @@ export default function Home() {
             <li key={post.slug} className="first:border-t">
               <PostItem
                 date={post.date}
-                slug={post.slug}
+                slug={post.slug as `/blog/${string}`}
                 title={post.title}
                 description={post.description}
               />

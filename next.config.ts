@@ -13,6 +13,7 @@ const nextConfig = async (): Promise<NextConfig> => {
     /* config options here */
     basePath: "/my-portfolio",
     output: "export",
+    typedRoutes: true,
     allowedDevOrigins: ["192.168.1.42"],
   }
 }

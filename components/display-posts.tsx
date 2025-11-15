@@ -33,7 +33,7 @@ export function DisplayPosts({
             <PostItem
               date={date}
               title={title}
-              slug={slug}
+              slug={slug as `/blog/${string}`}
               description={description}
             />
           </li>

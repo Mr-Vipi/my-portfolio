@@ -1,6 +1,6 @@
-import { ComponentProps } from "react"
+import { ComponentPropsWithRef } from "react"
 
-type IconProps = ComponentProps<"svg">
+type IconProps = ComponentPropsWithRef<"svg">
 
 export const Icons = {
   GitHub: (props: IconProps) => (
