@@ -1,15 +1,21 @@
 "use client"
 
-import { ComponentPropsWithRef, ReactNode, useState } from "react"
-import Link, { LinkProps } from "next/link"
-import { useRouter } from "next/navigation"
+import { ComponentPropsWithRef, useState } from "react"
+import Link from "next/link"
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import { Menu } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 
 import { Icons } from "./icons"
 import { Button } from "./ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet"
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -22,6 +28,10 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="right">
+        <VisuallyHidden>
+          <SheetTitle>Mobile Navigation</SheetTitle>
+          <SheetDescription>Menu with navigation links</SheetDescription>
+        </VisuallyHidden>
         <MobileLink
           href="/"
           className="flex items-center"
@@ -37,41 +47,38 @@ export function MobileNav() {
           <MobileLink href="/about" onOpenChange={setOpen}>
             About
           </MobileLink>
-          <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
+          <a
+            href={siteConfig.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             GitHub
-          </Link>
-          <Link
+          </a>
+          <a
             href={siteConfig.links.bluesky}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             Bluesky
-          </Link>
+          </a>
         </div>
       </SheetContent>
     </Sheet>
   )
 }
 
-type MobileLinkProps = Omit<ComponentPropsWithRef<"a">, keyof LinkProps> &
-  LinkProps & {
-    children: ReactNode
-    onOpenChange?: (open: boolean) => void
-    href: string
-  }
+type MobileLinkProps = ComponentPropsWithRef<typeof Link> & {
+  onOpenChange?: (open: boolean) => void
+}
 
 export function MobileLink({
-  href,
   children,
   onOpenChange,
   ...props
 }: MobileLinkProps) {
-  const router = useRouter()
   return (
     <Link
-      href={href}
       onClick={() => {
-        router.push(href)
         onOpenChange?.(false)
       }}
       {...props}

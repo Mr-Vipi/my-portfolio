@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
@@ -16,10 +14,10 @@ export function SiteHeader() {
         <MainNav />
         <div className="flex flex-1 items-center justify-end space-x-2">
           <nav className="flex items-center">
-            <Link
+            <a
               href={siteConfig.links.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <div
                 className={cn(
@@ -30,11 +28,11 @@ export function SiteHeader() {
                 <Icons.GitHub className="size-4" />
                 <span className="sr-only">Bluesky</span>
               </div>
-            </Link>
-            <Link
+            </a>
+            <a
               href={siteConfig.links.bluesky}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <div
                 className={cn(
@@ -45,7 +43,7 @@ export function SiteHeader() {
                 <Icons.BlueSky className="size-4" />
                 <span className="sr-only">GitHub</span>
               </div>
-            </Link>
+            </a>
             <ModeToggle />
             <MobileNav />
           </nav>
