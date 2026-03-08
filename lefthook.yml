@@ -1,0 +1,29 @@
+# Validate commit messages
+commit-msg:
+  commands:
+    commitlint:
+      run: "npx commitlint --edit {1}"
+
+# Validate content before committing
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.{js,jsx,ts,tsx}"
+      run: pnpm exec eslint --fix {staged_files}
+      stage_fixed: true
+    format:js:
+      glob: "*.{js,jsx,ts,tsx}"
+      run: pnpm exec prettier --write {staged_files}
+      stage_fixed: true
+    format:other:
+      glob: "*.{json,css,md}"
+      run: pnpm exec prettier --write {staged_files}
+      stage_fixed: true
+
+pre-push:
+  commands:
+    lint:
+      run: pnpm run lint
+    build:
+      run: pnpm run build
