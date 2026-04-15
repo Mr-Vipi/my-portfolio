@@ -6,6 +6,5 @@
     "source.fixAll.ts": "always"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
   "js/ts.tsdk.path": "node_modules\\typescript\\lib"
 }
