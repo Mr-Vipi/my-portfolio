@@ -71,11 +71,7 @@ type MobileLinkProps = ComponentPropsWithRef<typeof Link> & {
   onOpenChange?: (open: boolean) => void
 }
 
-export function MobileLink({
-  children,
-  onOpenChange,
-  ...props
-}: MobileLinkProps) {
+function MobileLink({ children, onOpenChange, ...props }: MobileLinkProps) {
   return (
     <Link
       onClick={() => {

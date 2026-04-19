@@ -1,9 +1,9 @@
 {
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit",
-    "source.sort.json": "never",
     "source.fixAll.eslint": "always",
-    "source.fixAll.ts": "always"
+    "source.fixAll.ts": "always",
+    "source.organizeImports": "explicit",
+    "source.sort.json": "never"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "js/ts.tsdk.path": "node_modules\\typescript\\lib"
