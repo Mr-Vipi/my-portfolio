@@ -1,7 +1,6 @@
-ignoredBuiltDependencies:
-  - esbuild
-  - sharp
-  - unrs-resolver
-
-onlyBuiltDependencies:
-  - lefthook
+allowBuilds:
+  "@sentry/cli": false
+  esbuild: false
+  lefthook: true
+  sharp: false
+  unrs-resolver: false
