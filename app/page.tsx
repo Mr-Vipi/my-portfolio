@@ -11,9 +11,9 @@ export default function Home() {
 
   return (
     <>
-      <section className="space-y-6 pb-8 pt-6 md:mt-10 md:pb-12 lg:py-32">
+      <section className="space-y-6 pt-6 pb-8 md:mt-10 md:pb-12 lg:py-32">
         <div className="container mx-auto flex w-full flex-col gap-4 px-8 text-center">
-          <h1 className="text-balance text-3xl font-black sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="text-3xl font-black text-balance sm:text-5xl md:text-6xl lg:text-7xl">
             Hello, I&apos;m Jul
           </h1>
           <p className="mx-auto max-w-2xl text-balance text-muted-foreground sm:text-lg">
@@ -23,7 +23,10 @@ export default function Home() {
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href="/blog"
-              className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-fit")}
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "h-10 w-full px-8 sm:w-fit"
+              )}
             >
               View my blog
             </Link>
@@ -33,7 +36,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
-                "w-full sm:w-fit"
+                "h-10 w-full px-8 sm:w-fit"
               )}
             >
               GitHub

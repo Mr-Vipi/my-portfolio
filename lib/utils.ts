@@ -1,10 +1,6 @@
 import type { Post } from "#site/content"
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+export { cn } from "cn"
 
 export function formatDate(input: string | number): string {
   const date = new Date(input)

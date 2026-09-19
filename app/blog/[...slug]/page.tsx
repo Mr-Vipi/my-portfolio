@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 import { posts } from "#site/content"
 
+import { Separator } from "@/components/ui/separator"
 import { MDXContent } from "@/components/mdx-content"
 
 import "@/styles/mdx.css"
@@ -31,12 +32,12 @@ export default async function PostPage(
   }
 
   return (
-    <article className="container prose m-auto w-full max-w-3xl px-8 py-6 dark:prose-invert">
+    <article className="container m-auto prose w-full max-w-3xl px-8 py-6 dark:prose-invert">
       <h1 className="mb-2">{post.title}</h1>
       {post.description ? (
         <p className="mt-0 text-xl text-muted-foreground">{post.description}</p>
       ) : null}
-      <hr className="my-4" />
+      <Separator className="my-4" />
       <MDXContent code={post.body} />
     </article>
   )
