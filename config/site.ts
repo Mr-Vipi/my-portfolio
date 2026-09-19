@@ -9,5 +9,3 @@ export const siteConfig = {
     github: "https://github.com/mr-vipi",
   },
 }
-
-export type SiteConfig = typeof siteConfig

@@ -24,17 +24,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-pt-14">
-      <body
-        className={cn(
-          geistSans.variable,
-          geistMono.variable,
-          "min-h-screen antialiased"
-        )}
-      >
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(
+        geistSans.variable,
+        geistMono.variable,
+        "scroll-pt-14 antialiased"
+      )}
+    >
+      <body className="min-h-screen">
         <Providers>
-          <div className="fixed left-0 top-0 -z-10 size-full">
-            <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)] dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
+          <div className="fixed top-0 left-0 -z-10 size-full">
+            <div className="absolute top-0 -z-2 h-screen w-screen bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)] dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
           </div>
           <div className="relative flex min-h-dvh flex-col">
             <SiteHeader />

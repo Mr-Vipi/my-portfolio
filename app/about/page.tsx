@@ -13,7 +13,7 @@ export default async function AboutPage() {
       </div>
       <hr className="my-8" />
       <div className="flex flex-col items-center gap-8 md:flex-row md:items-start">
-        <div className="flex min-w-48 max-w-48 flex-col gap-2">
+        <div className="flex max-w-48 min-w-48 flex-col gap-2">
           <Avatar className="size-48">
             <AvatarImage
               src={`${siteConfig.basePath}/avatar.png`}
@@ -21,10 +21,10 @@ export default async function AboutPage() {
             />
             <AvatarFallback>JG</AvatarFallback>
           </Avatar>
-          <h2 className="break-words text-center text-2xl font-bold">
+          <h2 className="text-center text-2xl font-bold wrap-break-word">
             {siteConfig.author}
           </h2>
-          <p className="break-words text-center text-muted-foreground">
+          <p className="text-center wrap-break-word text-muted-foreground">
             Software Developer
           </p>
         </div>

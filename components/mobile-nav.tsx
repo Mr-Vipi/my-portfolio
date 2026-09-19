@@ -2,36 +2,25 @@
 
 import { ComponentPropsWithRef, useState } from "react"
 import Link from "next/link"
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import { Menu } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 
 import { Icons } from "./icons"
 import { Button } from "./ui/button"
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetTitle,
-  SheetTrigger,
-} from "./ui/sheet"
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
-        <Button variant="outline" className="w-10 px-0 sm:hidden">
-          <Menu className="size-5" />
-          <span className="sr-only">Toggle Theme</span>
-        </Button>
+      <SheetTrigger
+        render={<Button variant="outline" className="w-10 px-0 sm:hidden" />}
+      >
+        <Menu className="size-5" />
+        <span className="sr-only">Toggle Theme</span>
       </SheetTrigger>
       <SheetContent side="right">
-        <VisuallyHidden>
-          <SheetTitle>Mobile Navigation</SheetTitle>
-          <SheetDescription>Menu with navigation links</SheetDescription>
-        </VisuallyHidden>
         <MobileLink
           href="/"
           className="flex items-center"

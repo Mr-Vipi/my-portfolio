@@ -1,5 +1,5 @@
 import type { NextConfig } from "next"
-import { withSentryConfig } from "@sentry/nextjs"
+import { withSentryConfig } from "@sentry/nextjs/config"
 import { build } from "velite"
 
 const nextConfig = async (): Promise<NextConfig> => {
@@ -15,7 +15,7 @@ const nextConfig = async (): Promise<NextConfig> => {
     basePath: "/my-portfolio",
     output: "export",
     typedRoutes: true,
-    allowedDevOrigins: ["192.168.1.42"],
+    allowedDevOrigins: ["192.168.1.*"],
   }
 }
 
