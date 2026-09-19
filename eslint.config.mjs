@@ -1,14 +1,31 @@
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier/flat";
-import tailwind from "eslint-plugin-tailwindcss";
+import eslintPluginTailwindcss from "eslint-plugin-tailwindcss";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  ...tailwind.configs["flat/recommended"],
   prettier,
+  // eslint-plugin-tailwindcss v4: https://github.com/francoismassart/eslint-plugin-tailwindcss
+  eslintPluginTailwindcss.configs["flat/recommended"] ||
+    eslintPluginTailwindcss.configs.recommended,
+  {
+    settings: {
+      tailwindcss: {
+        // REQUIRED for v4: the CSS entry point with @import "tailwindcss".
+        cssConfigPath: "./app/globals.css",
+      },
+    },
+  },
+  {
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    rules: {
+      // Class ordering is handled by prettier-plugin-tailwindcss.
+      "tailwindcss/classnames-order": "error",
+    },
+  },
   {
     rules: {
       "no-console": [
@@ -17,7 +34,6 @@ const eslintConfig = defineConfig([
           allow: ["info", "warn", "error"],
         },
       ],
-      "tailwindcss/classnames-order": "error",
     },
   },
   // Override default ignores of eslint-config-next.

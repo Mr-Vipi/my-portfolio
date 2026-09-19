@@ -28,7 +28,8 @@ const config: Config = {
   singleQuote: false,
   tabWidth: 2,
   trailingComma: "es5",
-  tailwindFunctions: ["clsx", "cva"],
+  tailwindStylesheet: "app/globals.css",
+  tailwindFunctions: ["clsx", "cva", "cn", "cx", "tw", "twMerge", "twJoin"],
 }
 
 export default config
