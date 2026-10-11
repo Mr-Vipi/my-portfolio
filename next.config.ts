@@ -12,10 +12,21 @@ const nextConfig = async (): Promise<NextConfig> => {
 
   return {
     /* config options here */
+    experimental: {
+      agentFeedback: true,
+    },
+    turbopack: {
+      rules: {
+        "*.css": {
+          loaders: ["@tailwindcss/turbopack"],
+          as: "*.css",
+        },
+      },
+    },
+    allowedDevOrigins: ["192.168.1.*"],
     basePath: "/my-portfolio",
     output: "export",
     typedRoutes: true,
-    allowedDevOrigins: ["192.168.1.*"],
   }
 }
 
